@@ -1,4 +1,4 @@
-<img src="splash.png" alt="VidCat" width="500" height="500">
+<img src="src/splash.png" alt="VidCat" width="500" height="500">
 
 
 ## Quick Links
