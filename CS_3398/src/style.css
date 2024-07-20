@@ -1,0 +1,223 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#container {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+}
+
+#left-container {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 30%; /* 30% of the width */
+  height: 100%; /* Full height */
+}
+
+#panel1 {
+  flex: 1;
+  background-color: #f1f1f1;
+  border: 2px dashed #ccc; /* Visual cue for drag and drop */
+}
+
+#right-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Take the remaining width (70%) */
+  height: 100%;
+}
+
+#panel3 {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 50%; /* 50% of the height of the right section */
+  width: 100%;
+  background-color: #d1d1d1;
+  padding-right: 20px; /* Add padding to the right side */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.output-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.output-path-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px; /* Space between elements */
+  padding: 10px; /* Add padding for spacing */
+  box-sizing: border-box; /* Include padding in width calculation */
+  width: 100%;
+}
+
+.output-path-section input {
+  flex: 1;
+}
+
+#panel3 .row {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: flex-start; /* Align items to the left */
+  padding: 10px; /* Add padding for spacing */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+#panel3 .row:nth-child(2) {
+  flex-direction: row;
+  justify-content: space-evenly; /* Distribute buttons evenly */
+}
+
+#panel2 {
+  flex: 0 0 50%; /* 50% of the height of the right section */
+  width: 100%;
+  background-color: #e1e1e1;
+  padding-right: 20px; /* Add padding to the right side */
+  box-sizing: border-box; /* Include padding in width calculation */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.item-block {
+  display: flex;
+  justify-content: space-between; /* Justify content to space between */
+  border: 1px solid #ccc;
+  padding: 5px; /* Reduce padding */
+  margin: 5px 0; /* Reduce margin */
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  width: calc(100% - 20px); /* Adjust width to allow space on the right */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+.item-name {
+  font-weight: bold;
+}
+
+.delete-button {
+  padding: 5px 10px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #c0392b;
+}
+
+.list-item {
+  list-style-type: none;
+  cursor: move;
+}
+
+.dragging {
+  opacity: 0.5;
+}
+
+.location-input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  box-sizing: border-box;
+  height: 20px; /* Match the height of the input box */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#progressBar {
+  width: 100%;
+  height: 30px; /* Increased height for more girth */
+  border-radius: 15px; /* Rounded corners */
+  overflow: hidden; /* Ensure rounded corners */
+  background-color: #e1e1e1; /* Background color */
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Inner shadow for depth */
+}
+
+#progressBar::-webkit-progress-bar {
+  background-color: #e1e1e1; /* Background color for webkit browsers */
+  border-radius: 15px; /* Rounded corners for webkit browsers */
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Inner shadow for webkit browsers */
+}
+
+#progressBar::-webkit-progress-value {
+  background-color: #4caf50; /* Progress color */
+  border-radius: 15px; /* Rounded corners for webkit browsers */
+  transition: width 0.25s; /* Smooth transition for progress */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Shadow for progress */
+}
+
+#progressBar::-moz-progress-bar {
+  background-color: #4caf50; /* Progress color for Firefox */
+  border-radius: 15px; /* Rounded corners for Firefox */
+  transition: width 0.25s; /* Smooth transition for progress */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Shadow for progress */
+}
+
+.label-container {
+  display: flex;
+  flex-direction: row; /* Align labels horizontally */
+  align-items: center; /* Center align labels vertically */
+  margin-top: 10px; /* Add some space above the labels */
+  width: 100%; /* Full width */
+  justify-content: space-between; /* Distribute space between labels */
+  white-space: nowrap; /* Prevent wrapping */
+}
+
+#progressLabel, #stateLabel {
+  margin: 0 5px; /* Add some horizontal space between labels */
+}
+
+#stateLabel {
+  text-align: left; /* Align text to the left */
+}
+
+#progressLabel {
+  text-align: right; /* Align text to the right */
+}
+
+/* error popup for protected directories */
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+

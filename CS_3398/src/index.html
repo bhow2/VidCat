@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VidCat</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="container">
+    <div id="left-container">
+      <div id="panel1" class="panel">
+        <button id="selectFileButton">Select File</button>
+        <button id="selectFolderButton">Select Folder</button>
+      </div>
+    </div>
+    <div id="right-container">
+      <div id="panel2" class="panel">
+        <ol id="ordered_list"></ol>
+      </div>
+      <div id="panel3" class="panel">
+        <div class="output-container">
+          <div class="output-path-section">
+            <label for="fileNameInput">File Name:</label>
+            <input type="text" id="fileNameInput" />
+          </div>
+          <div class="output-path-section">
+            <label for="locationInput">Location:</label>
+            <input type="text" id="locationInput" readonly />
+            <button id="browseButton">Browse</button>
+          </div>
+        </div>
+        <div class="row">
+          <button id="runButton">Run</button>
+          <button id="cancelButton">Cancel</button>
+          <button id="debugButton">Debug</button>
+        </div>
+        <div class="row">
+          <label for="progressBar">Progress:</label>
+          <progress id="progressBar" value="0" max="100"></progress>
+          <div class="label-container">
+            <span id="stateLabel">Idle</span> <!-- Label to display the state -->
+            <span id="progressLabel">0%</span> <!-- Label to display the progress percentage -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Error Modal -->
+  <div id="errorModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p class="modal-message"></p>
+      <button id="okButton">OK</button>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
